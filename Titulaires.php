@@ -2,18 +2,21 @@
 
 Class Titulaire {
 
-    private string $Nom;
-    private string $Prenom;
-    private string $Ville;
-    private int $datenaissance;
-    private $allcompte;
+    private string $_nom;
+    private string $_prenom;
+    private string $_ville;
+    private int $_dateNaissance;
+    private $allcomptes;
+
+public function __construct (string $_nom , string $_prenom , string $_ville ,string $_dateNaissance, $allcomptes) 
+    {
+
+    $this->_nom = $_nom;
+    $this->_prenom = $_prenom;
+    $this->_dateNaissance = new datetime ($_dateNaissance);
+    $this->_ville = $_ville;
+    $this->allcomptes = [];
+    }
+
 
 }
-public function __construct(string $Nom, string $Prenom, string $Ville, )
-    {
-        $this->_marque = $Nom;
-        $this->_modele = $_modele;
-        $this->_nbPortes = $_nbPortes;
-        $this->_vitesseActuelle = 0;
-        $this->_statut = false; // arrêt
-    }
