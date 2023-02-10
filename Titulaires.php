@@ -18,5 +18,50 @@ public function __construct (string $_nom , string $_prenom , string $_ville ,st
     $this->allcomptes = [];
     }
 
+    //Getters
+    public function get_libelle()
+    {
+        return $this->_nom;
+    } 
+
+    public function get_titulaire()
+    {
+        return $this->_prenom;
+    } 
+
+    public function get_soldeinitial()
+    {
+        return $this->_dateNaissance;
+    }
+
+    public function get_devise()
+    {
+        return $this->_ville;
+    }
+    
+    //setters 
+
+    public function set_nom($_nom)
+    {
+         $this->_nom=$_nom;
+    } 
+
+    public function set_prenom($_prenom)
+    {
+         $this->_prenom=$_prenom;
+    } 
+
+    public function set_dateNaissance($_dateNaissance)
+    {
+         $this->_dateNaissance=$_dateNaissance;
+    }
+
+    public function set__ville($_ville)
+    {
+         $this->_ville=$_ville;
+    }
+    
+// Fin getters et setters
+// 
 
 }
