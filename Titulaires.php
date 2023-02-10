@@ -19,7 +19,7 @@ public function __construct (string $_nom , string $_prenom , string $_ville ,st
     }
 
     //Getters
-    public function get__nom()
+    public function get_nom()
     {
         return $this->_nom;
     } 

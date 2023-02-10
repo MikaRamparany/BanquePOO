@@ -3,11 +3,11 @@
 class Comptebancaire {
 
     private string $_libelle;
-    private string $_titulaire;
+    private Titulaire $_titulaire;
     private int $_soldeinitial;
     private float $_devise;
     
-    public function __construct (string $_libelle, string $_titulaire , string $_soldeinitial ,float $_devise) 
+    public function __construct (string $_libelle, Titulaire $_titulaire , string $_soldeinitial ,float $_devise) 
     {
 
     $this->_libelle = $_libelle;
@@ -61,7 +61,29 @@ class Comptebancaire {
     }
     
 // Fin getters et setters
-// 
+
+
+//* Création des différentes fonction : Créditer compte, Débiter compte, Effectuer virement.
+
+    public function crediter(float $crediter)
+
+    { 
+        $this -> _soldeinitial += $crediter;
+        echo "Le compte de" .$this->get_titulaire()->get_nom(). "  ".$this->get_titulaire()->get_prenom()." a été crédité de " .$crediter. " €. "; //!  ICI nous avons voulu récupérer le nom et le prénom du titulaire qui se trouvent dans la feuille titulaire.
+    } 
+
+    public function debiter(float $debiter) 
+    {
+        $this -> _soldeinitial -= $debiter;
+        echo "Le compte de" .$this->get_titulaire()->get_nom(). "  ".$this->get_titulaire()->get_prenom()." a été débité de " .$debiter. " €. ";
+
+    }
+
+    public function virement(float $sommecredite, $comptecredite ) {
+
+        
+
+    }
 
 
 }
