@@ -19,22 +19,22 @@ public function __construct (string $_nom , string $_prenom , string $_ville ,st
     }
 
     //Getters
-    public function get_libelle()
+    public function get__nom()
     {
         return $this->_nom;
     } 
 
-    public function get_titulaire()
+    public function get_prenom ()
     {
         return $this->_prenom;
     } 
 
-    public function get_soldeinitial()
+    public function get_dateNaissance()
     {
         return $this->_dateNaissance;
     }
 
-    public function get_devise()
+    public function get_ville()
     {
         return $this->_ville;
     }
