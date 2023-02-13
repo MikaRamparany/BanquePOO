@@ -5,10 +5,10 @@ Class Titulaire {
     private string $_nom;
     private string $_prenom;
     private string $_ville;
-    private int $_dateNaissance;
+    private  datetime $_dateNaissance;
     private $allcomptes;
 
-public function __construct (string $_nom , string $_prenom , string $_ville ,string $_dateNaissance, $allcomptes) 
+public function __construct (string $_nom , string $_prenom , string $_ville ,string $_dateNaissance) 
     {
 
     $this->_nom = $_nom;
@@ -62,6 +62,28 @@ public function __construct (string $_nom , string $_prenom , string $_ville ,st
     }
     
 // Fin getters et setters
-// 
+
+
+// CRÉATION DE FONCTIONS POUR POUVOIR "L'ensemble des comptes d'un titulaire et son âge" COMME DEMANDÉ DANS L'EXERCICE. 
+
+    public function AgeActuelle()
+    {
+        
+    $Dateactuelle = new DateTime();
+    $result =  $this -> _dateNaissance -> diff ($Dateactuelle);
+    return $result-->  ("%Y ans ");
+    }
+
+    public function InfoTitulaire ()
+    {
+        $result = " Information Titulaire du Compte <br>".
+            "Nom du titulaire : ".$this->_nom."<br>".
+            "Prenom du titulaire : ".$this->_prenom."<br>".
+            "Ville : " .$this->_ville."<br>";
+            " Age : ".$this->AgeActuelle();
+            " Le(s) compte(s) du titulaire : ".$this-> allcomptes. " <br> ";
+        return $result;
+    }
+
 
 }
