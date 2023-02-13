@@ -5,9 +5,9 @@ class Comptebancaire {
     private string $_libelle;
     private Titulaire $_titulaire;
     private int $_soldeinitial;
-    private float $_devise;
+    private  $_devise;
     
-    public function __construct (string $_libelle, Titulaire $_titulaire , string $_soldeinitial ,float $_devise) 
+    public function __construct (string $_libelle, Titulaire $_titulaire , string $_soldeinitial , $_devise) 
     {
 
     $this->_libelle = $_libelle;
@@ -93,7 +93,7 @@ class Comptebancaire {
         ." Nom du Titulaire : " . $this->get_titulaire()->get_nom().  
         " <br> Prénom du Titulaire : ". $this->get_titulaire()->get_prenom(). "<br>".
         "<br> Compte : " . $this -> _libelle.
-        " <br> Solde du compte : ". $this -> get_soldeinitial(). "<br>"; 
+        " <br> Solde du compte : ". $this -> get_soldeinitial(). " ".$this->_devise."<br>"; 
         return $result;
 
     }
