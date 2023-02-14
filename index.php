@@ -36,5 +36,4 @@ echo $C1 -> virement(1099,$C1A)."<br>";
 // Infos Mouvements Comptes DUCHEMIN : 
 echo $T2-> InfoTitulaire()."<br>";
 echo $C2-> get_Infocompte()."<br>";
-
-// $compteCourant->virement(50, $compteEpargne);
+echo $C2A -> virement (3333, $C2)."<br>";
