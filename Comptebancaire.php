@@ -14,8 +14,7 @@ class Comptebancaire {
     $this->_titulaire = $_titulaire;
     $this->_soldeinitial = $_soldeinitial;
     $this->_devise = $_devise;
-    $_titulaire -> allcomptes[] = $this;
-  
+    $this -> _titulaire -> ajouterCompte($this);
     }
 
     //Getters
