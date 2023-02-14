@@ -38,6 +38,12 @@ public function __construct (string $_nom , string $_prenom , string $_ville ,st
     {
         return $this->_ville;
     }
+
+    public function getallcomptes()
+    {
+        $this-> allcomptes;
+    }
+
     
     //setters 
 
@@ -51,39 +57,62 @@ public function __construct (string $_nom , string $_prenom , string $_ville ,st
          $this->_prenom=$_prenom;
     } 
 
-    public function set_dateNaissance($_dateNaissance)
+    public function set_dateNaissance($_DateNaissance)
     {
-         $this->_dateNaissance=$_dateNaissance;
+         $this->_dateNaissance=$_DateNaissance;
     }
 
     public function set__ville($_ville)
     {
          $this->_ville=$_ville;
     }
+    public function setallcomptes()
+    {
+        $this-> allcomptes;
+    }
+
     
 // Fin getters et setters
 
 
 // CRÉATION DE FONCTIONS POUR POUVOIR "L'ensemble des comptes d'un titulaire et son âge" COMME DEMANDÉ DANS L'EXERCICE. 
 
-    public function AgeActuelle()
+public function showComptes()
     {
-        
-    $Dateactuelle = new DateTime();
-    $result =  $this -> _dateNaissance -> diff ($Dateactuelle);
-    return $result-->  ("%Y ans ");
+
+        echo  "Liste Comptes du titulaire";
+    foreach ($this->allcomptes as $compte) {
+        $result = $compte;
+        }
+      
+    return $result; 
+    
+    }
+
+public function AGE()
+    { //formule prise de l'exercice 15 exo php partie 1 
+
+  $DateToday= new DateTime();
+
+  $result = $this->_dateNaissance->diff($DateToday);
+    return $result-> format('%y ans.');
     }
 
     public function InfoTitulaire ()
     {
-        $result = " Information Titulaire du Compte <br>".
+        $result = " ***********Information Titulaire du Compte********** <br>".
             "Nom du titulaire : ".$this->_nom."<br>".
-            "Prenom du titulaire : ".$this->_prenom."<br>".
+            "Prénom du titulaire : ".$this->_prenom."<br>".
             "Ville : " .$this->_ville."<br>";
-            " Age : ".$this->AgeActuelle();
-            " Le(s) compte(s) du titulaire : ".$this-> allcomptes. " <br> ";
+            // " Age du Titulaire: ".$this->AGE()."<br>";
+            // " Le(s) compte(s) du titulaire : ".$this-> showComptes (). " <br> ";
         return $result;
     }
 
+    // public function __toString() // Permet d'afficher les public function via ECHO sur la feuille INDEX.php
+    // {
+    //   $result = $this -> showComptes().$this->InfoTitulaire() .$this->AGE() ."<br>";
+    //   return $result;
+    // }
 
 }
