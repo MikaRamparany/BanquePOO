@@ -70,14 +70,14 @@ class Comptebancaire {
 
     { 
         $this -> _soldeinitial += $crediter;
-        echo "<br> Le compte " .$this-> _libelle. " de " .$this->get_titulaire()->get_nom(). "  ".$this->get_titulaire()->get_prenom()." a été crédité de " .$crediter. " €. <br>"; //!  ICI nous avons voulu récupérer le nom et le prénom du titulaire qui se trouvent dans la feuille Titulaires.php : d'où le GET_TITULAIRE (non de la classe Titulaire). 
+        echo "<br> MOUVEMENT BANCAIRE : Le compte " .$this-> _libelle. " de " .$this->get_titulaire()->get_nom(). "  ".$this->get_titulaire()->get_prenom()." a été crédité de " .$crediter. " €. <br>"; //!  ICI nous avons voulu récupérer le nom et le prénom du titulaire qui se trouvent dans la feuille Titulaires.php : d'où le GET_TITULAIRE (non de la classe Titulaire). 
         echo "Son solde est à présent de " .$this -> _soldeinitial." € "."<br> -----------";
     } 
 
     public function debiter(float $debiter) 
     {
         $this -> _soldeinitial -= $debiter;
-        echo "<br> Le compte " .$this-> _libelle.  " de " .$this->get_titulaire()->get_nom(). "  ".$this->get_titulaire()->get_prenom()." a été débité de " .$debiter. " €.  <br>";
+        echo "<br> MOUVEMENT BANCAIRE : Le compte " .$this-> _libelle.  " de " .$this->get_titulaire()->get_nom(). "  ".$this->get_titulaire()->get_prenom()." a été débité de " .$debiter. " €.  <br>";
         echo "Son solde est à présent de " .$this -> _soldeinitial ." € "."<br> -----------";
 
     }
