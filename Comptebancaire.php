@@ -69,31 +69,35 @@ class Comptebancaire {
 
     { 
         $this -> _soldeinitial += $crediter;
-        echo "Le compte " .$this-> _libelle. " de " .$this->get_titulaire()->get_nom(). "  ".$this->get_titulaire()->get_prenom()." a été crédité de " .$crediter. " €. <br>"; //!  ICI nous avons voulu récupérer le nom et le prénom du titulaire qui se trouvent dans la feuille Titulaires.php : d'où le GET_TITULAIRE (non de la classe Titulaire). 
+        echo "<br> Le compte " .$this-> _libelle. " de " .$this->get_titulaire()->get_nom(). "  ".$this->get_titulaire()->get_prenom()." a été crédité de " .$crediter. " €. <br>"; //!  ICI nous avons voulu récupérer le nom et le prénom du titulaire qui se trouvent dans la feuille Titulaires.php : d'où le GET_TITULAIRE (non de la classe Titulaire). 
+        echo "Son solde est à présent de " .$this -> _soldeinitial." € "."<br> -----------";
     } 
 
     public function debiter(float $debiter) 
     {
         $this -> _soldeinitial -= $debiter;
-        echo "Le compte " .$this-> _libelle.  " de " .$this->get_titulaire()->get_nom(). "  ".$this->get_titulaire()->get_prenom()." a été débité de " .$debiter. " €.  <br>";
+        echo "<br> Le compte " .$this-> _libelle.  " de " .$this->get_titulaire()->get_nom(). "  ".$this->get_titulaire()->get_prenom()." a été débité de " .$debiter. " €.  <br>";
+        echo "Son solde est à présent de " .$this -> _soldeinitial ." € "."<br> -----------";
 
     }
 
-    public function virement(float $Montantvire, $comptecredite ) //! J'ai besoin de créer une fonction Virement qui comprendra des VARIABLES pour lier les actions CREDITER et DEBITER.
+    public function virement(float $Montantvire,  $comptecredite ) //! J'ai besoin de créer une fonction Virement qui comprendra des VARIABLES pour lier les actions CREDITER et DEBITER.
     {
 
         $this -> debiter ($Montantvire);
         $comptecredite-> crediter($Montantvire);
-        echo "Un virement de " . $Montantvire. " € a été effectué sur le compte " .$comptecredite. " de " .$this->get_titulaire()->get_nom(). " " .$this->get_titulaire()->get_prenom(). "<br>";
+        echo "<br> <br> Un virement de " . $Montantvire. " € a été effectué sur le compte " .$comptecredite. " de " .$this->get_titulaire()->get_nom(). " " .$this->get_titulaire()->get_prenom(). "<br> <br>";
+        
 
     }
     public function get_Infocompte()
     {
-        $result = " Informations du compte : <br>"
-        ." Nom du Titulaire : " . $this->get_titulaire()->get_nom().  
-        " <br> Prénom du Titulaire : ". $this->get_titulaire()->get_prenom(). "<br>".
+        $result = " Informations du compte : <br> ". "______________".
         "<br> Compte : " . $this -> _libelle.
-        " <br> Solde du compte : ". $this -> get_soldeinitial(). " ".$this->_devise."<br>"; 
+        " <br>Nom du Titulaire : " . $this->get_titulaire()->get_nom().  
+        " <br> Prénom du Titulaire : ". $this->get_titulaire()->get_prenom(). "<br>".
+       
+        " <br> Solde du compte : ". $this -> get_soldeinitial(). " ".$this->_devise."<br>****************************************************************"; 
         return $result;
 
     }
