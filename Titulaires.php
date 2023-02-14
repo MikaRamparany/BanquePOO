@@ -6,7 +6,7 @@ Class Titulaire {
     private string $_prenom;
     private string $_ville;
     private  datetime $_dateNaissance;
-    public array $allcomptes;
+    private array $allcomptes;
 
 public function __construct (string $_nom , string $_prenom , string $_ville ,string $_dateNaissance) 
     {
@@ -76,6 +76,13 @@ public function __construct (string $_nom , string $_prenom , string $_ville ,st
 
 
 // CRÉATION DE FONCTIONS POUR POUVOIR "L'ensemble des comptes d'un titulaire et son âge" COMME DEMANDÉ DANS L'EXERCICE. 
+public function ajouterCompte(Comptebancaire $compte) 
+
+{ $this->allcomptes[] = $compte;
+   
+}
+
+
 
 public function showComptes()
     {
