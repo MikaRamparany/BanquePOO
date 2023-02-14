@@ -6,7 +6,7 @@ Class Titulaire {
     private string $_prenom;
     private string $_ville;
     private  datetime $_dateNaissance;
-    private $allcomptes;
+    public array $allcomptes;
 
 public function __construct (string $_nom , string $_prenom , string $_ville ,string $_dateNaissance) 
     {
@@ -79,23 +79,24 @@ public function __construct (string $_nom , string $_prenom , string $_ville ,st
 
 public function showComptes()
     {
-
-        echo  "Liste Comptes du titulaire";
-    foreach ($this->allcomptes as $compte) {
-        $result = $compte;
+        $result = "Le(s) compte(s) du titulaire : <br>";
+        // echo  "Liste Comptes du titulaire";
+    foreach ($this->allcomptes as $Compte) {
+        $result .= $Compte;
         }
       
     return $result; 
     
     }
 
-public function AGE()
+public function get_AGE()
     { //formule prise de l'exercice 15 exo php partie 1 
 
   $DateToday= new DateTime();
 
   $result = $this->_dateNaissance->diff($DateToday);
     return $result-> format('%y ans.');
+    
     }
 
     public function InfoTitulaire ()
@@ -103,15 +104,15 @@ public function AGE()
         $result = " ***********Information Titulaire du Compte********** <br>".
             "Nom du titulaire : ".$this->_nom."<br>".
             "Prénom du titulaire : ".$this->_prenom."<br>".
-            "Ville : " .$this->_ville."<br>";
-            // " Age du Titulaire: ".$this->AGE()."<br>";
-            // " Le(s) compte(s) du titulaire : ".$this-> showComptes (). " <br> ";
+            "Ville : " .$this->_ville."<br>".
+            " Age du Titulaire: " .$this-> get_AGE()."<br>".
+            "  <br>".$this-> showComptes (). " <br> ";
         return $result;
     }
 
     // public function __toString() // Permet d'afficher les public function via ECHO sur la feuille INDEX.php
     // {
-    //   $result = $this -> showComptes().$this->InfoTitulaire() .$this->AGE() ."<br>";
+    //   $result = $this -> showComptes().$this->InfoTitulaire() .$this->get_AGE() ."<br>";
     //   return $result;
     // }
 
